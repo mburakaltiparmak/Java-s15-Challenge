@@ -3,12 +3,21 @@ package Library.Person;
 import Library.Book.Book;
 import Library.Book.Books;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reader extends Member {
 
     private Books books;
     private List<String> actions; //Kullanıcının eylemlerini tutacak liste
+
+
+    public Reader(String name, long member_id, MemberType member_type, String date_of_membership, boolean no_books_issued, int max_book_limit, String address, String phone_no, Books books) {
+        super(name, member_id, member_type, date_of_membership, no_books_issued, max_book_limit, address, phone_no);
+        this.books = books;
+        this.actions = new ArrayList<>(); // actions listesini başlatın
+    }
+
 
     public Reader(String name, long member_id, MemberType member_type, String date_of_membership, boolean no_books_issued, int max_book_limit, String address, String phone_no, Books books, List<String> actions) {
         super(name, member_id, member_type, date_of_membership, no_books_issued, max_book_limit, address, phone_no);
