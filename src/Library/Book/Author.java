@@ -12,6 +12,9 @@ public class Author extends Person {
         super(name);
         this.books = books;
     }
+    public Author (String name){
+        super(name);
+    }
 
     @Override
     public String whoyouare() {

@@ -14,7 +14,11 @@ public class Reader extends Member {
 
     public Reader(String name, long member_id, MemberType member_type, String date_of_membership, boolean no_books_issued, int max_book_limit, String address, String phone_no, Books books) {
         super(name, member_id, member_type, date_of_membership, no_books_issued, max_book_limit, address, phone_no);
-        this.books = books;
+        if (books != null) {
+            this.books = books;
+        } else {
+            this.books = new Books(); // Eğer books null ise, yeni bir Books nesnesi oluşturulur
+        }
         this.actions = new ArrayList<>(); // actions listesini başlatın
     }
 

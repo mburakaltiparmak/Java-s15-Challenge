@@ -1,5 +1,7 @@
 package Library.Person;
 
+import java.util.Objects;
+
 public class Member extends Person {
 
     private long member_id;
@@ -82,5 +84,31 @@ public class Member extends Person {
     @Override
     public String whoyouare() {
         return super.whoyouare();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Member member = (Member) o;
+        return member_id == member.member_id && no_books_issued == member.no_books_issued && max_book_limit == member.max_book_limit && member_type == member.member_type && Objects.equals(date_of_membership, member.date_of_membership) && Objects.equals(address, member.address) && Objects.equals(phone_no, member.phone_no);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(member_id, member_type, date_of_membership, no_books_issued, max_book_limit, address, phone_no);
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "member_id=" + member_id +
+                ", member_type=" + member_type +
+                ", date_of_membership='" + date_of_membership + '\'' +
+                ", no_books_issued=" + no_books_issued +
+                ", max_book_limit=" + max_book_limit +
+                ", address='" + address + '\'' +
+                ", phone_no='" + phone_no + '\'' +
+                '}';
     }
 }

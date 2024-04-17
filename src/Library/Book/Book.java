@@ -2,7 +2,9 @@ package Library.Book;
 
 import Library.Person.Reader;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 public class Book {
 
@@ -12,11 +14,11 @@ public class Book {
     private double price;
     private String status;
     private String edition;
-    private String date_of_purchase;
+    private LocalDate date_of_purchase;
     private Category category;
 
 
-    public Book(Author author, String book_ID, String name, double price, String status, String edition, String date_of_purchase, Category category) {
+    public Book(Author author, String book_ID, String name, double price, String status, String edition, LocalDate date_of_purchase, Category category) {
         this.author = author;
         this.book_ID = book_ID;
         this.name = name;
@@ -87,11 +89,11 @@ public class Book {
         this.edition = edition;
     }
 
-    public String getDate_of_purchase() {
+    public LocalDate getDate_of_purchase() {
         return date_of_purchase;
     }
 
-    public void setDate_of_purchase(String date_of_purchase) {
+    public void setDate_of_purchase(LocalDate date_of_purchase) {
         this.date_of_purchase = date_of_purchase;
     }
 
@@ -104,5 +106,29 @@ public class Book {
         return null;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book book)) return false;
+        return Double.compare(getPrice(), book.getPrice()) == 0 && Objects.equals(getAuthor(), book.getAuthor()) && Objects.equals(getBook_ID(), book.getBook_ID()) && Objects.equals(getName(), book.getName()) && Objects.equals(getStatus(), book.getStatus()) && Objects.equals(getEdition(), book.getEdition()) && Objects.equals(getDate_of_purchase(), book.getDate_of_purchase()) && getCategory() == book.getCategory();
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAuthor(), getBook_ID(), getName(), getPrice(), getStatus(), getEdition(), getDate_of_purchase(), getCategory());
+    }
+//display metodu yerine Override edilmiş toString
+    @Override
+    public String toString() {
+        return "Book{" +
+                "author=" + author +
+                ", book_ID='" + book_ID + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", status='" + status + '\'' +
+                ", edition='" + edition + '\'' +
+                ", date_of_purchase=" + date_of_purchase +
+                ", category=" + category +
+                '}';
+    }
 }
