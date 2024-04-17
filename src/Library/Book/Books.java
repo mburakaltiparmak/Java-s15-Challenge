@@ -41,4 +41,8 @@ public class Books {
                 "books=" + books +
                 '}';
     }
+
+    public boolean contains(Book book) {
+        return true;
+    }
 }

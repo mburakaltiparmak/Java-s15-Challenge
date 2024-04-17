@@ -79,4 +79,8 @@ public class Member extends Person {
         this.phone_no = phone_no;
     }
 
+    @Override
+    public String whoyouare() {
+        return super.whoyouare();
+    }
 }

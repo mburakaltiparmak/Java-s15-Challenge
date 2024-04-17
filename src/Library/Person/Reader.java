@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Reader extends Member {
 
-    private Books books;
+    public Books books;
     private List<String> actions; //Kullanıcının eylemlerini tutacak liste
 
 
@@ -72,4 +72,5 @@ public class Reader extends Member {
     public String whoyouare() {
         return super.whoyouare();
     }
+
 }

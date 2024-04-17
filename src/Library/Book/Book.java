@@ -1,5 +1,9 @@
 package Library.Book;
 
+import Library.Person.Reader;
+
+import java.util.List;
+
 public class Book {
 
     private Author author;
@@ -89,6 +93,15 @@ public class Book {
 
     public void setDate_of_purchase(String date_of_purchase) {
         this.date_of_purchase = date_of_purchase;
+    }
+
+    public Reader getOwner(List<Reader> readers) {
+        for (Reader reader : readers) {
+            if (reader.books.contains(this)) {
+                return reader;
+            }
+        }
+        return null;
     }
 
 
